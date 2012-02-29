@@ -3,5 +3,5 @@ class Photo < ActiveRecord::Base
 
   belongs_to :album
 
-  validates :image, presence: true
+  validates :image, :album_id, presence: true
 end

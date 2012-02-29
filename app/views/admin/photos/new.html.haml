@@ -1,8 +1,9 @@
 %h1 Add new photo
 
 = simple_form_for [:admin, resource] do |f|
-  = f.input :title
-  = f.input :description, input_html: { rows: 5 }
+  = f.association :album
   = f.input :image
   = f.input :image_cache, as: :hidden
+  = f.input :title
+  = f.input :description, input_html: { rows: 5 }
   = f.submit
