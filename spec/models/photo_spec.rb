@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Photo do
+  it { should belong_to :album }
   it { should validate_presence_of :image }
 end

@@ -1,1 +1,10 @@
-%p To be continue...
+- if @albums.any?
+  - @albums.in_groups_of(3, false) do |group|
+    .row
+      - group.each do |album|
+        .span3.album_cover
+          = link_to [album, :photos] do
+            = image_tag album.random_photo.image.thumb.url
+            %span= album.title
+- else 
+  %p There are no albums yet.

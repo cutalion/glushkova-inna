@@ -4,10 +4,11 @@
     %meta{:charset => "utf-8"}/
     %title= content_for?(:title) ? yield(:title) : "Glushkovainna"
     = csrf_meta_tags
+
+    = javascript_include_tag "application"
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    / Le styles
     :css
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -28,25 +29,36 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "#"} 
-            Глушкова Инна. Фотограф
+          = link_to "Глушкова Инна. Фотограф", root_path, :class => :brand
           -# .container.nav-collapse
           -#   %ul.nav
-          -#     %li= link_to "Link 1", "/path1"
-          -#     %li= link_to "Link 2", "/path2"
-          -#     %li= link_to "Link 3", "/path3"
+          -#     %li= link_to "About me", "#"
 
     .container
 
       .content
         .row
-          .span12
+          .span9
             = yield
+          .span1 &nbsp;
+          .span3.sidebar
+            %ul
+              - Album.all.each do |album|
+                %li{ :class => ("current" if album == @album) }
+                  = link_to album, [album, :photos]
+
+            %h3 Contacts
+            %ul.unstyled
+              %li
+                %strong Phone
+                (095) 303-63-21
+              %li 
+                %strong E-mail:
+                kuakugawa@gmail.com
+              %li 
+                %strong Skype:
+                tanzania
+
     
       %footer
         %p &copy; Inna Glushkova 2012
-    /
-      Le javascript
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"

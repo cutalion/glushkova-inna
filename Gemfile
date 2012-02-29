@@ -18,10 +18,11 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem "twitter-bootstrap-rails"
+  gem "colorbox-rails", :git => "git://github.com/stevo/colorbox-rails.git"
 end
 
 gem 'jquery-rails'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -36,13 +37,14 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-gem "twitter-bootstrap-rails", :group => :assets
 gem "inherited_resources"
 gem "haml-rails"
 gem "simple_form"
 gem "carrierwave"
 gem "mini_magick"
+gem "thor"
+gem "progressbar"
+
 group :test do
   gem "rspec-rails"
   gem "capybara"
@@ -52,6 +54,7 @@ group :test do
   gem "guard-rspec"
   gem "guard-spin"
   gem "factory_girl_rails"
+  gem "ffaker"
   gem "database_cleaner"
   gem "rb-inotify", :require => false
   gem "rb-fsevent", :require => false
