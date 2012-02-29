@@ -2,7 +2,7 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}/
-    %title= content_for?(:title) ? yield(:title) : "Глушкова Инна. Фотограф"
+    %title= content_for?(:title) ? yield(:title) : "Глушкова Инна. Фотограф. Админка"
     = csrf_meta_tags
 
     = javascript_include_tag "application"
@@ -13,7 +13,7 @@
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "admin/application", :media => "all"
     / Le fav and touch icons
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
@@ -21,7 +21,7 @@
     %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
 
 
-  %body
+  %body.admin
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
@@ -29,36 +29,17 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "Глушкова Инна. Фотограф", root_path, :class => :brand
-          -# .container.nav-collapse
-          -#   %ul.nav
-          -#     %li= link_to "About me", "#"
+          = link_to "Admin", admin_root_path, :class => :brand
+          .container.nav-collapse
+            %ul.nav
+              %li= link_to "Public side", root_path
 
     .container
 
       .content
         .row
-          .span9
+          .span12
             = yield
-          .span1 &nbsp;
-          .span3.sidebar
-            %ul
-              - Album.all.each do |album|
-                %li{ :class => ("current" if album == @album) }
-                  = link_to album, [album, :photos]
-
-            %h3 Contacts
-            %ul.unstyled
-              %li
-                %strong Phone
-                (095) 303-63-21
-              %li 
-                %strong E-mail:
-                kuakugawa@gmail.com
-              %li 
-                %strong Skype:
-                kuakugawa
-
     
       %footer
         %p &copy; Inna Glushkova 2012

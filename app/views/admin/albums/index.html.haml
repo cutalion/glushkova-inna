@@ -1,0 +1,23 @@
+%h1 Albums
+%table{:class => "table table-striped"}
+  %thead
+    %tr
+      %th ID
+      %th
+        = t("activerecord.attributes.admin_album.title", :default => t("activerecord.labels.title", :default => "Title"))
+      %th
+        = t("activerecord.attributes.admin_album.description", :default => t("activerecord.labels.description", :default => "Description"))
+      %th Updated at
+      %th Actions
+  %tbody
+    - @albums.each do |album|
+      %tr
+        %td= album.id
+        %td= link_to album.title, admin_album_photos_path(album)
+        %td= album.description
+        %td= album.updated_at
+        %td
+          = link_to "Edit", edit_admin_album_path(album), :class => 'btn btn-mini'
+          = link_to "Destroy", admin_album_path(album), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-mini btn-danger'
+
+= link_to "New", new_admin_album_path, :class => 'btn btn-primary'

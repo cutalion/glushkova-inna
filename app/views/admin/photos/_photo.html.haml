@@ -1,4 +1,4 @@
-.photo
-  %h1= photo.title
-  = image_tag photo.image.small.url if photo.image
-  = link_to "delete", [:admin, photo], method: :delete
+.span2
+  = link_to photo.image.url, :class => 'album_photo' do
+    = image_tag photo.image.thumb.url
+    = link_to "delete", [:admin, photo.album, photo], method: :delete, class: 'btn btn-danger'

@@ -1,5 +1,10 @@
 %h1 Photos
 
-= link_to "Add new photo", [:new, :admin, :photo]
+= link_to "Add new photo", [:new, :admin, parent, :photo]
 
-= render collection
+.album
+  - collection.in_groups_of(5, false) do |photos|
+    .row= render photos
+
+:javascript
+  $('a.album_photo').colorbox({rel:'gallery', maxWidth: '90%', maxHeight: '90%'});

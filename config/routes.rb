@@ -6,8 +6,10 @@ Glushkovainna::Application.routes.draw do
   end
 
   namespace :admin do
-    root to: "photos#index"
+    root to: "albums#index"
 
-    resources :photos
+    resources :albums do
+      resources :photos
+    end
   end
 end

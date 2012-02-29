@@ -1,9 +1,13 @@
-%h1 Add new photo
+= simple_form_for [:admin, parent, resource], html: { class: 'form-horizontal' } do |f|
+  %fieldset
+    %legend Upload new photo
 
-= simple_form_for [:admin, resource] do |f|
   = f.association :album
   = f.input :image
   = f.input :image_cache, as: :hidden
   = f.input :title
   = f.input :description, input_html: { rows: 5 }
-  = f.submit
+
+  .form-actions
+    = f.submit nil, class: 'btn btn-primary'
+    = link_to "Cancel", [:admin, parent], class: 'btn'
