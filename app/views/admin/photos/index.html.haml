@@ -1,6 +1,33 @@
 %h1 Photos
 
-= link_to "Add new photo", [:new, :admin, parent, :photo]
+= simple_form_for [:admin, parent, Photo.new], html: { class: 'form-horizontal' } do |f|
+
+  %fieldset
+    %legend Upload new photo
+
+  %input{ id: "uploadify", name: "uploadify", type: "file" }
+
+- key = Rails.application.config.session_options[:key]
+:javascript
+  $(document).ready(function() {
+    var uploadify_script_data = {};
+    var csrf_param = $('meta[name=csrf-param]').attr('content');
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    uploadify_script_data[csrf_param] = encodeURI(encodeURIComponent(csrf_token));
+    uploadify_script_data['#{key}'] = '#{cookies[key]}';
+
+    $('#uploadify').uploadify({
+      uploader        : '/assets/uploadify.swf',
+      script          : '#{admin_album_photos_path(parent)}',
+      cancelImg       : '/assets/cancel.png',
+      auto            : true,
+      multi           : true,
+      removeCompleted : true,
+      scriptData      : uploadify_script_data,
+      onComplete      : function(event, ID, fileObj, doc, data) {},
+      onAllComplete   : function() { window.location.href = window.location.href }
+    });
+  });
 
 .album
   - collection.in_groups_of(5, false) do |photos|

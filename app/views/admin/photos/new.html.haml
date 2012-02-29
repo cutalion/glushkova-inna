@@ -1,13 +1,38 @@
 = simple_form_for [:admin, parent, resource], html: { class: 'form-horizontal' } do |f|
+
   %fieldset
     %legend Upload new photo
 
   = f.association :album
   = f.input :image
   = f.input :image_cache, as: :hidden
+  %input{ id: "uploadify", name: "uploadify", type: "file" }
   = f.input :title
   = f.input :description, input_html: { rows: 5 }
 
   .form-actions
     = f.submit nil, class: 'btn btn-primary'
     = link_to "Cancel", [:admin, parent], class: 'btn'
+
+- key = Rails.application.config.session_options[:key]
+:javascript
+  $(document).ready(function() {
+    var uploadify_script_data = {};
+    var csrf_param = $('meta[name=csrf-param]').attr('content');
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    uploadify_script_data[csrf_param] = encodeURI(encodeURIComponent(csrf_token));
+    uploadify_script_data['#{key}'] = '#{cookies[key]}';
+
+    $('#uploadify').uploadify({
+      uploader        : '/assets/uploadify.swf',
+      script          : '/photos',
+      cancelImg       : '/images/cancel.png',
+      auto            : true,
+      multi           : true,
+      removeCompleted : true,
+      scriptData      : uploadify_script_data,
+      onComplete      : function(event, ID, fileObj, doc, data) {
+      }
+    });
+  });
+
