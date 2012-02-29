@@ -34,13 +34,22 @@
             %ul.nav
               %li= link_to "Albums", admin_albums_path
               %li= link_to "Public side", root_path
+            - if user_logged_in?
+              %ul.nav.pull-right
+                %li= link_to "Logout", admin_logout_path, method: :delete
 
     .container
 
       .content
         .row
           .span12
-            = yield
+
+          - if flash[:alert]
+            .alert.alert-error
+              %a{class: :close, data: { dismiss: :alert }}×
+              = flash[:alert]
+
+          = yield
     
       %footer
         %p &copy; Inna Glushkova 2012

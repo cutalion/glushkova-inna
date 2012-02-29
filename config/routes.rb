@@ -8,6 +8,10 @@ Glushkovainna::Application.routes.draw do
   namespace :admin do
     root to: "albums#index"
 
+    get    "login",  to: "sessions#new", as: "login"
+    post   "login",  to: "sessions#create"
+    delete "logout", to: "sessions#destroy", as: "logout"
+
     resources :albums do
       resources :photos
     end

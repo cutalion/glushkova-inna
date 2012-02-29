@@ -1,0 +1,6 @@
+= form_tag admin_login_path, method: :post, class: 'form-inline' do 
+  %fieldset
+    %legend Authentication
+    = text_field_tag :login, params[:login], placeholder: 'Login'
+    = password_field_tag :password, nil, placeholder: 'Password'
+    = submit_tag "Log In", class: 'btn btn-primary'
