@@ -44,6 +44,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "thor"
 gem "progressbar"
+gem "heroku"
 
 group :test do
   gem "rspec-rails"
