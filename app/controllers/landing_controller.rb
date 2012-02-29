@@ -1,5 +1,5 @@
 class LandingController < ApplicationController
   def index
-    @albums = Album.with_photos
+    @albums = Album.all
   end
 end
