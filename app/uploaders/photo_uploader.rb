@@ -22,7 +22,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "#{Rails.root}/tmp/uploads"
   end
 
-  process resize_to_fit: [2048, 2048]
+  process resize_to_limit: [2048, 2048]
   process :set_content_type
 
   version :thumb do
