@@ -9,10 +9,6 @@
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    :css
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
     = stylesheet_link_tag "application", :media => "all"
     / Le fav and touch icons
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
@@ -22,7 +18,7 @@
 
 
   %body
-    .navbar.navbar-fixed-top
+    .navbar.navbar-top
       .navbar-inner
         .container
           %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
@@ -47,10 +43,10 @@
                 %li{ :class => ("current" if album == @album) }
                   = link_to album, [album, :photos]
 
-            %h3 Contacts
+            %h2 Контакты
             %ul.unstyled
               %li
-                %strong Phone
+                %strong Телефон
                 (095) 303-63-21
               %li 
                 %strong E-mail:
@@ -61,4 +57,4 @@
 
     
       %footer
-        %p &copy; Inna Glushkova 2012
+        %p &copy; Глушкова Инна 2012
