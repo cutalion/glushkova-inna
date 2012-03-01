@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class PhotoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MimeTypes
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -22,6 +23,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   process resize_to_fit: [2048, 2048]
+  process :set_content_type
 
   version :thumb do
     process resize_to_fill: [256, 256]
