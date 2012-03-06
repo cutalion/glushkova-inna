@@ -47,6 +47,7 @@ gem "mini_magick"
 gem "thor"
 gem "progressbar"
 gem "heroku"
+gem "meta-tags", :require => "meta_tags"
 
 group :test do
   gem "rspec-rails"
