@@ -3,7 +3,7 @@
     %h1= parent.title
 
 .album
-  - collection.in_groups_of(5, false) do |photos|
+  - collection.reverse.in_groups_of(5, false) do |photos|
     .row= render photos
 
 :javascript
