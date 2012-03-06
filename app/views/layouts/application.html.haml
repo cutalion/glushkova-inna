@@ -1,8 +1,8 @@
 !!! 5
-%html{:lang => "en"}
+%html{:lang => "ru"}
   %head
     %meta{:charset => "utf-8"}/
-    %title= content_for?(:title) ? yield(:title) : "Глушкова Инна. Фотограф"
+    = display_meta_tags :site => 'Инна Глушкова. Фотограф'
     = csrf_meta_tags
 
     = javascript_include_tag "application"
@@ -25,7 +25,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "Глушкова Инна. Фотограф", root_path, :class => :brand
+          = link_to "Инна Глушкова. Фотограф", root_path, :class => :brand
           -# .container.nav-collapse
           -#   %ul.nav
           -#     %li= link_to "About me", "#"
