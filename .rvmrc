@@ -20,7 +20,6 @@ else
 
 fi
 
-if [ `hostname` = alligator ]; then
-  export ADMIN_LOGIN=admin
-  export ADMIN_PASSWORD=pass
+if [[ -x .secrets ]]
+  . ./.secrets
 fi
