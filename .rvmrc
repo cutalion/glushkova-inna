@@ -20,6 +20,6 @@ else
 
 fi
 
-if [[ -x .secrets ]]
+if [[ -x .secrets ]]; then
   . ./.secrets
 fi
