@@ -48,6 +48,7 @@ gem "thor"
 gem "progressbar"
 gem "heroku"
 gem "meta-tags", :require => "meta_tags"
+gem "rails_config"
 
 group :test do
   gem "rspec-rails"
