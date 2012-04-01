@@ -1,4 +1,4 @@
-.span2
+.photo
   = link_to photo.image.url, :class => 'album_photo' do
     = image_tag photo.image.thumb.url
     = link_to "delete", [:admin, photo.album, photo], method: :delete, class: 'btn btn-danger'

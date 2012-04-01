@@ -5,9 +5,7 @@
   .span12
     %h1= parent.title
 
-.album
-  - collection.reverse.in_groups_of(5, false) do |photos|
-    .row= render photos
+.album= render collection
 
 :javascript
   $('a.album_photo').colorbox({rel:'gallery', maxWidth: '90%', maxHeight: '90%'});
