@@ -10,8 +10,8 @@
 :javascript
   function show_social_links(){
     $('#cboxContent .likes').remove();
-    $('#cboxClose').before('<div class="likes" style="position: absolute; bottom: 0; right: 100px; width: 40px; height: 22px"><div id="vk_like"></div></div>');
-    VK.Widgets.Like("vk_like", {type: "mini", page_id: $(this).data('page-id')});
+    $('#cboxClose').before('<div class="likes" style="position: absolute; bottom: 0; right: 100px; width: 40px; height: 22px"><div id="vk_tooltip"></div><div id="vk_like"></div></div>');
+    VK.Widgets.Like("vk_like", {type: "mini", ttHere: $('#vk_tooltip')}, $(this).data('page-id'));
   }
 
   $('a.album_photo').colorbox({rel:'gallery', maxWidth: '90%', maxHeight: '90%', onComplete: show_social_links});
