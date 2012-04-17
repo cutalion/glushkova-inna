@@ -19,9 +19,10 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem "twitter-bootstrap-rails"
-  gem "colorbox-rails", :git => "git://github.com/stevo/colorbox-rails.git"
 end
+
+gem "twitter-bootstrap-rails"
+gem "colorbox-rails", :git => "git://github.com/stevo/colorbox-rails.git"
 
 gem 'jquery-rails'
 # To use ActiveModel has_secure_password
