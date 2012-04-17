@@ -5,8 +5,8 @@ CarrierWave.configure do |config|
   config.root = File.join Rails.root, "public"
   config.fog_credentials = {
     :provider               => 'AWS',       # required
-    :aws_access_key_id      => Settings.aws_access_key_id,       # required
-    :aws_secret_access_key  => Settings.aws_secret_access_key,       # required
+    :aws_access_key_id      => Settings.aws_access_key_id || ENV['AWS_ACCESS_KEY_ID'],       # required
+    :aws_secret_access_key  => Settings.aws_secret_access_key || ENV['AWS_SECRET_ACCESS_KEY'],       # required
     :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
   }
   config.fog_directory  = 'glushkova-me'                     # required
