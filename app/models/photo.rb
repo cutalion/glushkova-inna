@@ -3,7 +3,15 @@ class Photo < ActiveRecord::Base
 
   belongs_to :album
 
+  scope :ordered_by_position, order(:position)
+
   validates :image, :album_id, presence: true
+
+  def self.sort(photos)
+    photos.each_with_index do |id, index|
+      Photo.update_all({ position: index+1 }, { id: id })
+    end
+  end
 
   def thumb_url
     image.thumb.url

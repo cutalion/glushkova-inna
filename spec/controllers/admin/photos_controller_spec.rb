@@ -12,4 +12,16 @@ describe Admin::PhotosController do
     end
     it { should respond_with :success }
   end
+
+  describe "index" do
+    before do
+      @ordered_photos = double('ordered photos').as_null_object
+      Photo.stub ordered_by_position: @ordered_photos
+      controller.stub parent: album
+      get :index, album_id: album.id
+    end
+    it "should show photos ordered by position" do
+      assigns(:photos).should == @ordered_photos
+    end
+  end
 end

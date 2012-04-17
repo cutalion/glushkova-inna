@@ -13,7 +13,9 @@ Glushkovainna::Application.routes.draw do
     delete "logout", to: "sessions#destroy", as: "logout"
 
     resources :albums do
-      resources :photos
+      resources :photos do
+        collection { post :sort }
+      end
     end
   end
 end

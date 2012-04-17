@@ -49,6 +49,7 @@ gem "progressbar"
 gem "heroku"
 gem "meta-tags", :require => "meta_tags"
 gem "rails_config"
+gem "acts_as_list"
 
 group :test do
   gem "rspec-rails"

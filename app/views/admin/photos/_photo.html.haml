@@ -1,4 +1,4 @@
-.photo
+= content_tag_for(:div, photo) do
   = link_to photo.image.url, :class => 'album_photo' do
     = image_tag photo.image.thumb.url
     = link_to "delete", [:admin, photo.album, photo], method: :delete, class: 'btn btn-danger'

@@ -29,7 +29,7 @@
     });
   });
 
-.album= render collection
+.album{ data: { :"update-url" => sort_admin_album_photos_path } }= render collection
 
 :javascript
   $('a.album_photo').colorbox({rel:'gallery', maxWidth: '90%', maxHeight: '90%'});

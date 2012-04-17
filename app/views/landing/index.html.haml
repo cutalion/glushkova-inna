@@ -7,7 +7,7 @@
       - group.each do |album|
         .span3.album_cover
           = link_to [album, :photos] do
-            = image_tag album.random_photo.image.thumb.url if album.photos.any?
+            = image_tag album.cover.image.thumb.url if album.photos.any?
             %span= album.title
 - else 
   %p There are no albums yet.

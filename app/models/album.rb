@@ -4,8 +4,8 @@ class Album < ActiveRecord::Base
 
   scope :with_photos, joins(:photos).group("albums.id")
 
-  def random_photo
-    photos.first
+  def cover
+    photos.ordered_by_position.first
   end
 
   def to_s
