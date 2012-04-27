@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def set_default_meta_tags
     set_meta_tags :site => 'Инна Глушкова. Фотограф', 
-                  :keywords => 'инна глушкова, фотограф, детское фото, семейное фото, freezelight, севастополь',
-                  :description => 'Инна Глушкова - фотограф из Севастополя. Детское, семейное, свадебное фото. Freezelight.'
+                  :keywords => 'инна глушкова, фотограф в севастополе, детское фото, семейное фото, freezelight, севастополь',
+                  :description => 'Инна Глушкова - фотограф в Севастополе. Детское, семейное, свадебное фото. Freezelight.'
   end
 end
