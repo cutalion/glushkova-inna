@@ -20,7 +20,7 @@ CarrierWave.configure do |config|
     config.enable_processing = false
 
   when "production" then
-    config.fog_directory  = 'glushkova-me'                     # required
+    config.fog_directory  = 'images.glushkova.me'                     # required
   else
     config.fog_directory  = 'glushkova-me-dev'                     # required
   end
