@@ -9,7 +9,7 @@
 
 :javascript
   $(function(){
-    function show_social_links(page_url, page_image){
+    function show_social_links(page_id, page_url, page_image){
       $('#cboxContent .likes').remove();
       $('#cboxClose').before('<div class="likes" style="position: absolute; bottom: 0; right: 100px; width: 40px; height: 22px"><div id="vk_tooltip"></div><div id="vk_like"></div></div>');
       VK.Widgets.Like(
@@ -17,9 +17,9 @@
           type: "mini", 
           ttHere: $('#vk_tooltip'), 
           pageUrl: page_url,
-          pageImage: page_image
+          image: page_image
         }, 
-        $(this).data('page-id')
+        page_id
       );
     };
 
@@ -28,17 +28,17 @@
       maxWidth: '90%', 
       maxHeight: '90%', 
       onComplete: function(){
-        location.hash = $(this).data('page-id');
-        show_social_links(location.href, $(this).attr('href'));
+        var page_id = $(this).data('page-id');
+        location.hash = "photo_" + page_id;
+        show_social_links(page_id, location.href, $(this).attr('href'));
       },
       onClosed: function(){
         location.hash = "";
       }
     });
 
-    var matched = location.hash.match(/photo_\d+/);
+    var matched = location.hash.match(/photo_(\d+)/);
     if(matched) {
-      console.log($("a[data-page-id=" + matched[0] + "]"))
-      $("a[data-page-id=" + matched[0] + "]").click();
+      $("a[data-page-id=" + matched[1] + "]").click();
     }
   })
