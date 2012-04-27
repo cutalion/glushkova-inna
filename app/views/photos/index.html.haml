@@ -17,7 +17,7 @@
           type: "mini", 
           ttHere: $('#vk_tooltip'), 
           pageUrl: page_url,
-          pageImage: "http://glushkova.me/assets/dark_wood.png"
+          pageImage: page_image
         }, 
         page_id
       );
@@ -30,7 +30,7 @@
       onComplete: function(){
         var page_id = $(this).data('page-id');
         location.hash = "photo_" + page_id;
-        show_social_links(page_id, location.href, $(this).attr('href'));
+        show_social_links(page_id, location.href, $(this).data('preview'));
       },
       onClosed: function(){
         location.hash = "";
