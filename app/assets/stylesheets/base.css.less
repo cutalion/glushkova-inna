@@ -1,0 +1,98 @@
+@import "twitter/bootstrap/mixins";
+
+body {
+  background-image: url('dark_wood.png');
+}
+
+.navbar-inner {
+  background: none !important;
+  .box-shadow(none) !important;
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  li {
+    line-height: 1.5em;
+    &.current {
+      font-weight: bold;
+    }
+  }
+}
+
+.album_cover {
+  position: relative;
+  text-align: center;
+  
+  a {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    margin-left: -6px;
+    padding-right: 6px;
+  }
+}
+
+.album .photo {
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin: 0 10px 10px 0;
+
+  img {
+    .box-shadow(0 1px 2px 0 rgba(0, 0, 0, 0.8), 0 -1px 0 0 rgba(255, 255, 255, 0.1));
+  }
+}
+
+#colorbox, #cboxOverlay, #cboxWrapper {
+  z-index: 900;
+}
+
+#cboxOverlay {
+  background-image: none;
+  background-color: #efeddf;
+}
+
+#cboxContent, #cboxWrapper {
+  overflow: visible;
+}
+
+#colorbox {
+  .box-shadow(0 1px 2px 0 rgba(0, 0, 0, 0.25), 0 -1px 0 0 rgba(255, 255, 255, 0.1));
+}
+
+#cboxTopLeft, #cboxTopRight, #cboxBottomLeft, #cboxBottomRight {
+  background: white;
+  height: 21px;
+  width: 21px;
+}
+
+#cboxMiddleLeft {
+  background: white;
+  width: 21px;
+}
+
+#cboxMiddleRight, #cboxTopCenter, #cboxBottomCenter {
+  background: white;
+  height: 21px;
+}
