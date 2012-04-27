@@ -8,10 +8,37 @@
 .album= render collection
 
 :javascript
-  function show_social_links(){
-    $('#cboxContent .likes').remove();
-    $('#cboxClose').before('<div class="likes" style="position: absolute; bottom: 0; right: 100px; width: 40px; height: 22px"><div id="vk_tooltip"></div><div id="vk_like"></div></div>');
-    VK.Widgets.Like("vk_like", {type: "mini", ttHere: $('#vk_tooltip')}, $(this).data('page-id'));
-  }
+  $(function(){
+    function show_social_links(page_url, page_image){
+      $('#cboxContent .likes').remove();
+      $('#cboxClose').before('<div class="likes" style="position: absolute; bottom: 0; right: 100px; width: 40px; height: 22px"><div id="vk_tooltip"></div><div id="vk_like"></div></div>');
+      VK.Widgets.Like(
+        "vk_like", {
+          type: "mini", 
+          ttHere: $('#vk_tooltip'), 
+          pageUrl: page_url,
+          pageImage: page_image
+        }, 
+        $(this).data('page-id')
+      );
+    };
 
-  $('a.album_photo').colorbox({rel:'gallery', maxWidth: '90%', maxHeight: '90%', onComplete: show_social_links});
+    $('a.album_photo').colorbox({
+      rel:'gallery', 
+      maxWidth: '90%', 
+      maxHeight: '90%', 
+      onComplete: function(){
+        location.hash = $(this).data('page-id');
+        show_social_links(location.href, $(this).attr('href'));
+      },
+      onClosed: function(){
+        location.hash = "";
+      }
+    });
+
+    var matched = location.hash.match(/photo_\d+/);
+    if(matched) {
+      console.log($("a[data-page-id=" + matched[0] + "]"))
+      $("a[data-page-id=" + matched[0] + "]").click();
+    }
+  })
