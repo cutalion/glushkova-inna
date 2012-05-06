@@ -9,7 +9,7 @@ CarrierWave.configure do |config|
     :aws_secret_access_key  => Settings.aws_secret_access_key || ENV['AWS_SECRET_ACCESS_KEY'],       # required
     :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
   }
-  config.fog_directory  = 'glushkova-me'                     # required
+  config.fog_directory  = 'images.glushkova.me'                     # required
   config.fog_host       = "http://images.glushkova.me"            # optional, defaults to nil
   config.fog_public     = true                                   # optional, defaults to true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
