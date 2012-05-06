@@ -24,6 +24,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   process resize_to_limit: [2048, 2048]
   process :set_content_type
+  process :clear_color_profile
 
   version :big do
     process resize_to_limit: [800, 800]
@@ -35,6 +36,13 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   version :small do
     process resize_to_fill: [120, 120]
+  end
+
+  def clear_color_profile
+    manipulate! do |img|
+      img.run_command "mogrify", "+profile '*'", img.escaped_path
+      img
+    end
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
