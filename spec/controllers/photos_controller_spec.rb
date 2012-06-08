@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe PhotosController do
-  let(:album) { Factory :album }
+  let(:album) { create :album }
 
   describe "index" do
     it "should show photos ordered by position" do

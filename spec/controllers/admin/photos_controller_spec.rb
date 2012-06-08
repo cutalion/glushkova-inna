@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Admin::PhotosController do
-  let(:album) { Factory :album }
+  let(:album) { create :album }
   before { sign_in }
 
   describe "redirect to index after create" do
