@@ -66,5 +66,5 @@ group :test do
   gem "rb-fsevent", :require => false
   gem "rb-fchange", :require => false
   gem "libnotify"
-  gem "shoulda"
+  gem "shoulda", :require => false
 end
