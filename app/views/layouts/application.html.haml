@@ -16,10 +16,6 @@
     .navbar.navbar-top
       .navbar-inner
         .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
           = link_to "Инна Глушкова. Фотограф", root_path, :class => :brand
 
     .container
@@ -40,14 +36,17 @@
               %li
                 %strong Телефон:
                 (095)&nbsp;303&nbsp;63&nbsp;21
-              %li 
+              %li
                 %strong E-mail:
                 = link_to "inna@glushkova.me", "mailto:inna@glushkova.me"
-              %li 
+              %li
                 %strong Skype:
                 kuakugawa
+              %li
+                %strong Фотошкола:
+                = link_to "vk.com/fotomeridian", "https://vk.com/fotomeridian", target: "_blank"
 
-    
+
       %footer
         %p &copy; Глушкова Инна 2012
 
